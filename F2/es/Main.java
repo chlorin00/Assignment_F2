@@ -7,11 +7,11 @@ public class Main {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Escape Space");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(400, 650);
+		frame.setSize(405, 629);
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(new BorderLayout());
 		
-		SpaceShip v = new SpaceShip(180, 550, 20, 20);
+		SpaceShip v = new SpaceShip(180, 525, 20, 20);
 		GamePanel gp = new GamePanel();
 		GameEngine engine = new GameEngine(gp, v);
 		frame.addKeyListener(engine);

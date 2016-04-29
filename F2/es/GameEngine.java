@@ -20,7 +20,7 @@ public class GameEngine implements KeyListener {
 	private Timer timer;
 	
 	// private long score = 0;
-	private double difficulty = 0.1;
+	private double difficulty = 0.3;
 	
 	public GameEngine(GamePanel gp, SpaceShip v) {
 		this.gp = gp;
@@ -86,15 +86,35 @@ public class GameEngine implements KeyListener {
 	void controlVehicle(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_LEFT:
-			v.move(-1);
+			v.moveX(-1);
 			break;
 		case KeyEvent.VK_RIGHT:
-			v.move(1);
+			v.moveX(1);
 			break;
-		case KeyEvent.VK_D:
-			difficulty += 0.1;
+		case KeyEvent.VK_UP:
+			v.moveY(-1);
+			break;
+		case KeyEvent.VK_DOWN:
+			v.moveY(1);
+			break;
+		case KeyEvent.VK_PLUS:
+			difficulty += 0.2;
+			checkDifficulty(difficulty);
+			break;
+		case KeyEvent.VK_MINUS:
+			difficulty -= 0.2;
+			checkDifficulty(difficulty);
 			break;
 		}
+	}
+
+	public void checkDifficulty(double difficulty) {
+		if(difficulty > 0.7) {
+				difficulty = 0.7;
+			}
+		if(difficulty < 0.3) {
+				difficulty = 0.3;
+			}
 	}
 
 	// public long getScore(){
